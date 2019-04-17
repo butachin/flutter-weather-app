@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_weather_app/screens/today-page.dart';
+import 'package:flutter_weather_app/screens/tomorrow-page.dart';
+import 'package:flutter_weather_app/screens/five-days-page.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -10,6 +13,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int currentIndex = 0;
+  final List<Widget> tabs = [
+    TodayPage(),
+    TomorrowPage(),
+    FiveDaysPage(),
+  ];
+
+  void onTabTapped(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,32 +33,21 @@ class _HomePageState extends State<HomePage> {
         title: Text(this.widget.title),
         elevation: 0.0,
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(
-              top: 12.0,
-              bottom: 12.0,
-              left: 8.0,
-              right: 8.0,
-            ),
-            child: TextField(
-              onChanged: (text) {
-                setState(() {});
-              },
-              decoration: InputDecoration(
-                hintText: "Search",
-                border: InputBorder.none,
-                focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.orange[600])),
-                prefixIcon: Icon(
-                  Icons.search,
-                  size: 24.0,
-                  color: Colors.grey,
-                ),
-              ),
-            ),
+      body: tabs[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: onTabTapped,
+        currentIndex: currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.home),
+            title: new Text('Home'),
           ),
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.mail),
+            title: new Text('Messages'),
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person), title: Text('Profile'))
         ],
       ),
     );
