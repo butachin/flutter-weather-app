@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_weather_app/screens/today-page.dart';
-import 'package:flutter_weather_app/screens/tomorrow-page.dart';
-import 'package:flutter_weather_app/screens/five-days-page.dart';
+import 'package:flutter_weather_app/screens/today_page.dart';
+import 'package:flutter_weather_app/screens/tomorrow_page.dart';
+import 'package:flutter_weather_app/screens/five_days_page.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
