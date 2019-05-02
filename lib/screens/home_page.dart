@@ -39,15 +39,17 @@ class _HomePageState extends State<HomePage> {
         currentIndex: currentIndex,
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(Icons.today),
-            title: new Text('今日'),
+            icon: Image.asset(""),
+            title: Text('今日'),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.event),
-            title: new Text('明日'),
+            icon: Image.asset(""),
+            title: Text('明日'),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.date_range), title: Text('5日間'))
+              icon: Image.asset(""),
+              title: Text('5日間'),
+          )
         ],
       ),
     );
